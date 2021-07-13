@@ -33,4 +33,4 @@ for _ in range(N):
             index += 1
         if index < 0:
             index = 0
-    print("".join(map(str, stack)))
+    print("".join(stack))
