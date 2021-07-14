@@ -1,12 +1,13 @@
-#2주차
-
+2주차
+====
 > - stack
 > - queue
 > - list
 
 ---
 
-###21.07.12 - stack
+21.07.12 - stack
+-----------------
 
 > - [4949 - 균형잡힌 세상](https://www.acmicpc.net/problem/4949)
 > - [2504 - 괄호의 값](https://www.acmicpc.net/problem/2504)
@@ -41,7 +42,8 @@
 
 ---
 
-###21.07.13 - stack
+21.07.13 - stack
+-----------------
 
 > - [5397 - 키로거](https://www.acmicpc.net/problem/5397)
 > - [1918 - 후위표기식](https://www.acmicpc.net/problem/1918)
