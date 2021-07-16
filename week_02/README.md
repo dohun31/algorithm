@@ -133,3 +133,60 @@ queue를 하나 두고 입력된 정보를 담는다.
 그리고 듣고 싶었던 강의 결제해서 오늘은 한개만 풀었다~~!
 
 ---
+
+## 21.07.16 - list, queue
+
+> - [1406 - 에디터](https://www.acmicpc.net/problem/1406)
+> - [기능 개발](https://programmers.co.kr/learn/courses/30/lessons/42586)
+
+<1406>
+
+7월 13일에 풀었던 키로거 문제랑 비슷한 유형이어서 바로 그떄 봤던 멋진 풀이 적용했다~~
+진짜 cool한 코드..
+
+그리고 원래라면 이렇게 썼는데
+
+```python
+if left_list:
+   right_list.append(left_list.pop())
+```
+
+if 말고도 and or 연산자 잘 쓰고 싶어서
+
+```python
+left_list and right_list.append(left_list.pop())
+```
+
+and연산자 사용해서 코드를 짰다.
+
+<기능 개발>
+
+앞선 기능이 완성되어야 뒤의 기능도 배포를 할 수 있다
+그래서 현재 진도와, 진행 속도로 배포까지 며칠 걸리는지 계산해서 큐에 차례대로 push했다.
+이 때 며칠 걸리는지 계산은 아래와 같이 계산했다.
+
+```python
+import math
+day = math.ceil((100 - progress) / speed)
+```
+
+day = [7, 3, 9]라면 큐를 사용해서 먼저 7을 pop하고 7보다 큰 숫자가 나올 때 까지 pop하고 개수를 count한다. 이런식으로 큐가 빌 때까지 반복하면 답이 나온다.
+
+처음 시도에서 테스트 케이스 몇 개가 틀려서 황당했는데 알고봤더니 여기가 문제였다..!!
+
+```python
+if now_data > queue[0]:
+   result[-1] += 1
+   queue.popleft()
+```
+
+배포까지 걸리는 날이 같을 경우에 대해서 생각을 못했다.
+한 글자 더 추가하니까 성공~~
+
+```python
+if now_data >= queue[0]:
+   result[-1] += 1
+   queue.popleft()
+```
+
+---
