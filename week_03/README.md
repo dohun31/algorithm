@@ -6,7 +6,7 @@
 
 ---
 
-## 21.07.19 - string
+## 21.07.19
 
 > - [1269 - 대칭 차집합](https://www.acmicpc.net/problem/1269)
 > - [1316 - 그룹 단어 체커](https://www.acmicpc.net/problem/1316)
@@ -81,5 +81,96 @@ if len(key) == len(data) and (key in data * 2):
 
 그냥 당차게 풀었다가 메모리를 다 써버려서 틀렸다. 그래서 문제에서 10000개 이하의 숫자가 주어진다 해서 그냥 카운터 정렬로 풀었다.
 카운터 정렬은 실전에서 처음 써보는데 일정 범위 숫자만 있다면 쓸 수 있겠는데 범위가 너무 넓다면 굳이 안쓰고 싶은? 그런 정렬
+
+---
+
+## 21.07.20
+
+> - [2941 - 크로아티아 알파벳](https://www.acmicpc.net/problem/2941)
+> - [5052 - 전화번호 목록](https://www.acmicpc.net/problem/5052)
+> - [5430 - AC](https://www.acmicpc.net/problem/1541)
+> - [9935 - 문자열 폭발](https://www.acmicpc.net/problem/1544)
+> - [10816 - 숫자카드2](https://www.acmicpc.net/problem/10816)
+> - [11656 - 접미사 배열](https://www.acmicpc.net/problem/2577)
+> - [숫자문자열과 영단어](https://programmers.co.kr/learn/courses/30/lessons/81301)
+
+`<2941>`
+
+크로아티아 알파벳이 몇개 없어서 배열에 미리 넣어주고 replace를 사용했다.
+
+조금 실수했던 부분은 nljj 에서 lj를 먼저 지우고 nj가 됐을 때 다시 nj도 지워버려서 replace문을 수정했다
+(전)
+
+```python
+data = data.replace(c_data, '')
+```
+
+(후)
+
+```python
+data = data.replace(c_data, ' ')
+```
+
+이후에 공백은 빼주었다.
+
+`<5052>`
+
+처음 문제 이해가 조금 어려웠다.
+제일 먼저 긴급번호가 주어지고 그 뒤에 서로 비교하는줄 알고 문제를 풀었는데 그냥 서로서로 다 비교하는거였다.
+
+sort하게 되면 겹칠수 있는 `가능성이 있는 애들이 붙어있게 된다`. 따라서 i번째와 i + 1번쨰를 서로 비교해주면 된다.
+
+`<5430>`
+
+예제는 맞췄는데 시간 초과가 떴다..
+reverse를 진짜 `reverse안하는 방법`을 생각해봤다.
+
+1. `RR이 나오면 없애줌`
+2. `R일때 left를 not 해줌`
+3. `D일떄 left가 true면 reverse 안된거니까 popleft()`
+4. `D일때 left가 false면 reverse 이니까 pop()`
+5. `출력전 left가 false라면 reverse해주고 아니면 그대로 출력`
+
+`<9935>`
+
+처음부터 폭탄인지 확인하는거보다 마지막글자가 똑같을때 앞을 살펴보는것이 적절하다.
+왜냐하면 폭탄이 c4일때 문자열이 ccc4라면 c가 나올때마다 뒤가 4인지 검사해줘야 한다.
+따라서 4가 나올떄만 앞이 c인지 확인해주면 된다.
+
+```python
+if stack[-1] == bomb[-1] and len(stack) >= len(bomb):
+            if ''.join(stack[-len(bomb):]) == bomb:
+                for _ in range(len(bomb)):
+                    stack.pop()
+```
+
+`<10816>`
+
+간단한 dict 자료형을 사용하는 문제이다.
+데이터들이 주어지면 dict에 넣어주고 count해준다.
+그리고 개수를 물어보면 디폴트값을 0으로 해주고 답해주면 된다.
+
+```python
+result.append(dict.get(i, 0)) # dict에 key == i 가 있으면 value를 반환하고,
+# 아니라면 설정해준 default값(0)을 반환.
+```
+
+`<11656>`
+
+파이썬 너무 좋다...줄줄줄 적으면서 이게 되나? 싶은데 `이게 된다..!`
+
+```python
+print('\n'.join(sorted([data[i:] for i in range(len(data)))))
+```
+
+`<숫자문자열과 영단어>`
+
+크로아티아 알파벳이랑 비슷한 문잔데 0~9개만 미리 영어로 바꿔놓기만 하면 금방 풀리는 문제이다.
+
+```python
+for i in range(len(numbers)):
+        # 문자 숫자를 포함하고 있으면 replace해줌.
+        s = s.replace(numbers[i], str(i))
+```
 
 ---
