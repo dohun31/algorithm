@@ -178,6 +178,7 @@ for i in range(len(numbers)):
 ## 21.07.21
 
 > - [1181 - 단어정렬](https://www.acmicpc.net/problem/2941)
+> - [11650 - 좌표정렬하기](https://www.acmicpc.net/problem/11650)
 
 `<1181>`
 
@@ -193,3 +194,13 @@ sorted(list, key = lambda x: (condition1, condition2))
 ```
 
 이때 `condition`에 `+`, `-`를 붙이면 `오름차순`, `내림차순`으로 바꿀 수 있다.
+
+`<11650>`
+
+앞 문제에서 사용했던 `key`를 사용한다면 쉽게 풀리는 문제.
+그런데 '틀렸습니다'가 떴다...
+다시 보니까 좌표들을 문자 상태로 sort 했던 것이다.
+
+그래서 다시 int형으로 형변환해주고 다시 sort하니까 성공!
+
+---
