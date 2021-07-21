@@ -174,3 +174,22 @@ for i in range(len(numbers)):
 ```
 
 ---
+
+## 21.07.21
+
+> - [1181 - 단어정렬](https://www.acmicpc.net/problem/2941)
+
+`<1181>`
+
+`조건`
+
+1. `길이가 짧은 것부터`
+2. `길이가 같다면 사전 순으로`
+
+정렬에 조건을 사용하려면 다음과 같이 하면 된다.
+
+```python
+sorted(list, key = lambda x: (condition1, condition2))
+```
+
+이때 `condition`에 `+`, `-`를 붙이면 `오름차순`, `내림차순`으로 바꿀 수 있다.
