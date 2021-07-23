@@ -268,11 +268,11 @@ z_numbers는 아무리 많이 있어도 최대 한 개만 사용된다.
 
 ## 21.07.23
 
-> - [1302 - ](https://www.acmicpc.net/problem/1302)
-> - [1620 - ](https://www.acmicpc.net/problem/1620)
+> - [1302 - 베스트셀러](https://www.acmicpc.net/problem/1302)
+> - [1620 - 나는야 포켓몬 마스터 이다솜](https://www.acmicpc.net/problem/1620)
 > - [2002 - 추월](https://www.acmicpc.net/problem/2002)
-> - [13414 - ](https://www.acmicpc.net/problem/13414)
-> - [17219 - ](https://www.acmicpc.net/problem/17219)
+> - [13414 - 수강신청](https://www.acmicpc.net/problem/13414)
+> - [17219 - 비밀번호 찾기](https://www.acmicpc.net/problem/17219)
 
 `<1302>`
 
