@@ -429,12 +429,17 @@ input_files.append({'head': head, 'lower-head': head.lower(),'number': number, '
 따라서 해시에 key를 `head`, `number`, `tail`로 두고 value를 관리했다.
 그런데 또 다른 조건이 `head는 대소문자 구분이 없다.`는 것이었다.
 
-그래서 `lower-head`라는 key를 하나 더 만들었다.
+~~그래서 `lower-head`라는 key를 하나 더 만들었다.~~
+그럴 필요 없이 `key`를 다음과 같이 설정하면 된다.
+
+```python
+key = lambda x: (x['head'].lower(), int(x['number']))
+```
 
 그 다음 우선순위에 맞게 정렬을 하고, 출력을 하면 완성이다.
 
 ```python
-for file in sorted(input_files, key=lambda x:(x['lower-head'], int(x['number']))):
+for file in sorted(input_files, key=lambda x:(x['head'].lower(), int(x['number']))):
         full_name_file = file['head'] + file['number'] + file['tail']
         answer.append(full_name_file)
 
@@ -447,6 +452,6 @@ for file in sorted(input_files, key=lambda x:(x['lower-head'], int(x['number']))
 
 > 문자열, 해시, 정렬이 생각보다 서로 서로 필요한 부분이 많아서 놀랬다. 파일명 정렬도 문자열 다루기만 생각하고 뽑은 문젠데 정렬, 해시 다 사용했다.
 >
-> 제일 뿌듯한 점은 해시랑 친해졌다는것, 정렬에 key를 여러개 사용할 수 있다는 것이다. 😀
+> 제일 뿌듯한 점은 해시랑 제법 친해졌다는것, 정렬에 key를 여러개 사용할 수 있다는 것이다. 😀
 
 ---
