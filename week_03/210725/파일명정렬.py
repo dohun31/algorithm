@@ -11,9 +11,9 @@ def solution(files):
                     head += f
                 else:
                     tail += f
-        input_files.append({'head': head, 'lower-head': head.lower(),'number': number, 'tail': tail})
+        input_files.append({'head': head,'number': number, 'tail': tail})
 
-    for file in sorted(input_files, key=lambda x:(x['lower-head'], int(x['number']))):
+    for file in sorted(input_files, key=lambda x:(x['head'].lower(), int(x['number']))):
         full_name_file = file['head'] + file['number'] + file['tail']
         answer.append(full_name_file)
 
