@@ -418,7 +418,7 @@ for f in file:
 자료구조는 `해시`를 사용했다.
 
 ```python
-input_files.append({'head': head, 'lower-head': head.lower(),'number': number, 'tail': tail})
+input_files.append({'head': head, 'number': number, 'tail': tail})
 ```
 
 문제에서 힌트는 정렬에 `우선순위가 있다는 것`이었다.
