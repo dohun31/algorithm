@@ -366,6 +366,7 @@ get함수를 사용할지, key로 바로 접근할지 고민했다.
 > - [1213 - 팰린드롬](https://www.acmicpc.net/problem/1213)
 > - [7785 - 회사에 있는 사람](https://www.acmicpc.net/problem/7785)
 > - [17413 - 팰린드롬](https://www.acmicpc.net/problem/17413)
+> - [파일명 정렬](https://programmers.co.kr/learn/courses/30/lessons/17686)
 
 `<1213>`
 
@@ -394,6 +395,8 @@ for key in sorted(user.keys(), reverse = True):
 2. `그리고 스택에 <가 들어있으면 >가 들어올때까지 모든 data들은 그냥 더한다.` -> `역순 x`
 
 #### `파일명 정렬`
+
+⏱: 30분
 
 문자열 head, number, tail로 자르기
 
