@@ -159,6 +159,8 @@ def new_graph():
 
 > - [1012- 유기농 배추](https://www.acmicpc.net/problem/1012)
 > - [7576 - 토마토](https://www.acmicpc.net/problem/7576)
+> - [10026 - 적록색약](https://www.acmicpc.net/problem/10026)
+> - [14502 - 토마토](https://www.acmicpc.net/problem/14502)
 
 `<1012>`
 
@@ -184,4 +186,54 @@ for g in graph:
 
 `in`의 존재를 잊고 있었다... 반성 또 반성 다음에는 바로 생각이 나길
 
+`<10026>`
+
+그냥 dfs한 번, 적록색약 dfs한 번 돌리려고 했는데 그건 너무 파이썬답지 않아서 머리를 엄청 굴려서 해결해보았다.
+
+1. `적록색약이 보는 graph를 따로 구현한다.`
+
+```python
+n_graph = copy.deepcopy(graph)
+for i in range(n):
+    for j in range(n):
+        if n_graph[i][j] == 'G':
+            n_graph[i][j] = 'R'
+```
+
+2. `graph와, color를 원본이랑, 적록색약본이랑 2개를 준비한다.`
+
+```python
+graphs = [graph, n_graph]
+colors = [['R', 'G', 'B'], ['R', 'B']]
+```
+
+3. `그러면 똑같은 반복문으로 처리가 가능하다.😁`
+
+```python
+for color, gp in zip(colors, graphs):
+    count = 0
+     _graph = copy.deepcopy(gp)
+    _visited = copy.deepcopy(visited)
+    for c in color:
+        for i in range(n):
+            for j in range(n):
+                if _graph[i][j] == c and not _visited[i][j]:
+                    dfs(i, j, c)
+                    count += 1
+
+    print(count, end=' ')
+```
+
+`<14502>`
+
+모든 경우를 다 돌아봐야하는 `브루투포스` 문제이다. 거기다 이제 `bfs`를 곁들인..
+
+모든 경우는 `combination`을 사용해서 구했다.
+
+이 경우들만 구했다면 그 뒤부턴 단순 탐색 문제이다.
+
 ---
+
+```
+
+```
