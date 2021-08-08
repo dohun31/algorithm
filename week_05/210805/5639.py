@@ -14,7 +14,6 @@ def postorder(start, end):
     postorder(div, end)
     print(tree[start])
 
-
 tree = []
 count = 0
 while count <= 10000:
