@@ -11,7 +11,7 @@
 > - [2331 - 분해합](https://www.acmicpc.net/problem/2331)
 > - [2309 - 일곱 난쟁이](https://www.acmicpc.net/problem/2309)
 
-#####완전탐색 - `무식한 힘`
+##### 완전탐색 - `무식한 힘`
 
 > brute force : 무식한 힘으로 해결 가능. 😭
 
