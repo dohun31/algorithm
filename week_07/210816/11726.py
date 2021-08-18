@@ -1,7 +1,6 @@
 import sys
 input = sys.stdin.readline
 
-
 def solution(n):
     dp[:3] = [0, 1, 2]
     if n > 2:
