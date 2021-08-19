@@ -15,6 +15,6 @@ for idx, op in enumerate(map(int, input().split())):
 max = -10**9
 min = 10**9
 for set in product(my_operator, repeat=n):
-    sum = 0
+    sum = nums[0]
+    idx = 0
     q = deque(set)
-    print(q.popleft())
