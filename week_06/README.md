@@ -115,7 +115,7 @@ else:
 
 ---
 
-## 21.08.08
+## 21.08.15
 
 > - 올리브영 코테 1번
 > - [거리두기 확인하기](https://programmers.co.kr/learn/courses/30/lessons/81302)
