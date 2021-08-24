@@ -22,5 +22,5 @@ def solution(record):
                 result[time] = f"{v[0]}님이 나갔습니다."
     return result
 
-record = ["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Change uid4567 Ryan","Enter uid1234 Prodo"]
+record = ["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"]
 print(solution(record))
