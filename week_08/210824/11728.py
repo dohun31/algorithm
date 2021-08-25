@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 n, m = map(int, input().split())
 
 a = list(map(int, input().split()))
@@ -25,4 +28,4 @@ else:
 print(*result)
 
 # 내장 함수 사용
-print(*sorted(a + b))
+print(sorted(a + b))
