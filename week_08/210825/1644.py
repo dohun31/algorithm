@@ -13,12 +13,10 @@ for i in range(len(a)):
     if a[i]:
         primes.append(i)
 
-
 end = 0
-sum = primes[0]
 cnt = 0
 if primes:
-    print(primes)
+    sum = primes[0]
     for start in range(len(primes)):
         while sum < n and end < len(primes) - 1:
             end += 1

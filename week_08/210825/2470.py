@@ -8,7 +8,7 @@ for num in map(int, input().split()):
 
 result = [0, 0]
 n1 = heapq.heappop(q)
-min_sum = int(1e9)
+min_sum = int(1e10)
 while q:
     n2 = heapq.heappop(q)
     if abs(n1[1] + n2[1]) < min_sum:
