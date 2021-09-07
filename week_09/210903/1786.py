@@ -21,6 +21,7 @@ def kmp(t, p):
         if t[i] == p[j]:
             if j == lp - 1:
                 result.append(i - j + 1)
+                j = table[j]
             else:
                 j += 1
     return result

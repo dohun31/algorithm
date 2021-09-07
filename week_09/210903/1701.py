@@ -6,7 +6,7 @@ def make_table(s):
         table = [0] * l
         j = 0
         for i in range(1, l):
-            while j > k and ss[i] != ss[j]:
+            while j > 0 and ss[i] != ss[j]:
                 j = table[j - 1]
             if ss[i] == ss[j]:
                 j += 1
@@ -15,6 +15,4 @@ def make_table(s):
     return result
 
 s = input()
-
 print(make_table(s))
-

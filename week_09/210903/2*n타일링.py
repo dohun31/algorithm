@@ -1,4 +1,4 @@
-def solutio(n):
+def solution(n):
     dp = [1, 2]
     if n > 2:
         for i in range(2, n):
