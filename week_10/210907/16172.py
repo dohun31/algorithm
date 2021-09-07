@@ -19,7 +19,6 @@ def solution(s, k):
     ls, lk, table = len(s), len(k), make_table(k)
     j = 0
     for i in range(ls):
-        print(s[i], k[j])
         if s[i].isdigit():
             continue
         while j > 0 and s[i] != k[j]:
