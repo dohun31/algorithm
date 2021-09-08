@@ -1,5 +1,4 @@
 from itertools import combinations, permutations
-from collections import Counter
 
 def make_all_case(uid):
     user = []
@@ -37,7 +36,7 @@ def solution(user_id, banned_id):
             if i not in all_case[users[i]]:
                 break
             cnt += 1
-        if cnt == 4:
+        if cnt == len(users):
             result.append(''.join(sorted(users)))
 
     return len(set(result))
