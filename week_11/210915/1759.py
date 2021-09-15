@@ -1,10 +1,8 @@
 def make_word(word, l, c, idx, m, j):
     # 원하는 길이가 됐을때 모음이 1개 이상이거나, 자음이 2개 이상이라면 출력
-    if len(word) == l and m >= 1 and j >= 2:
-        print(word)
-        return
-    # 조건 불충족으로 원하는 길이보다 길어지면 그만
-    if len(word) > l:
+    if len(word) == l:
+        if m >= 1 and j >= 2:
+            print(word)
         return
     # 마지막 붙은 알파벳의 다음 알파벳부터 탐색 -> 사전 순
     for i in range(idx + 1, c):
