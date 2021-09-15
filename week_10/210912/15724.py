@@ -13,6 +13,4 @@ k = int(input())
 for _ in range(k):
     x1, y1, x2, y2 = map(int, input().split())
     jjs =  dp[x2][y2] - dp[x2][y1 - 1] - dp[x1 - 1][y2] + dp[x1 - 1][y1 - 1]
-    print(jjs)
-
-
+    print(jjs) 

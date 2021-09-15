@@ -14,6 +14,9 @@ def solution(board, skill):
                     board[i][j] -= degree
                 else:
                     board[i][j] += degree
+    for b in board:
+        print(b)
+    print()
     return count_alive(board)
 
 board = [[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5]]

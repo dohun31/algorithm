@@ -58,3 +58,129 @@ for i in range(1, n + 1):
 1.  `99시간 59분 59초가 제한이니까 충분히 할 수 있다.`
 
 정말 공부를 많이 해야겠다.
+
+---
+
+## 210914
+
+`카카오 6번`
+
+풀었다!!
+
+13일에 풀었던 `19551`을 미리 알았다면 이 문제를 푸는데 10분도 안걸릴만큼 쉬운 문제이다.
+
+먼저 skill 쿼리들을 돌면서 스킬을 적용한다.
+
+```python
+def apply_skill(r1, c1, r2, c2, d):
+        dp[r1][c1] -= d
+        dp[r2 + 1][c1] += d
+        dp[r1][c2 + 1] += d
+        dp[r2 + 1][c2 + 1] -= d
+
+for type, r1, c1, r2, c2, degree in skill:
+    if type == 2: degree = -degree
+        apply_skill(r1 + 1, c1 + 1, r2 + 1, c2 + 1, degree)
+```
+
+이때 스킬들의 `degree`는 원하는 사각형에 기록해두는데 이때 중요한건 `왼쪽 위`, `오른쪽 위 + 1`, `왼쪽 아래 + 1`, `오른쪽 아래 + 1`순서대로 `d`, `-d`, `-d`, `d`가 되게 해주어야 한다.
+
+#####_이렇게 하면 서로 서로 상쇄가 되어서 원하는 부분에만 `degree`만큼 적용이 된다._
+
+그리고 `bottom-up`방식으로 `dp`테이블을 채워주면서 바로바로 결과를 갱신해주면 된다.
+
+```python
+cnt = 0
+for i in range(1, row + 1):
+    for j in range(1, col + 1):
+        dp[i][j] += dp[i - 1][j] + dp[i][j - 1] - dp[i - 1][j - 1]
+        if board[i - 1][j - 1] + dp[i][j] > 0: cnt += 1
+```
+
+#### `O(S + R\*C) (S = len(skills), R = len(row), C = len(col))`
+
+---
+
+## 210915
+
+`9663`
+
+정말 정말 유명한 `N-Queen`문제.
+
+이번 카카오 코테 치면서 `백트래킹`, `완탐` 연습해야 할 것 같아서 풀게 되었다.
+
+일단 `백트래킹`이 잘 와닿지 않았는데 꾸역꾸역 머리에 넣고는 있다..
+
+차근차근 보자면
+
+1. `모든 열을 탐색한다.`
+
+```python
+ # 모든 열 탐색
+for col in range(n):
+    queens[row] = col
+```
+
+2. `모든 행을 탐색하면서 가능한 열을 구한다.`
+
+```python
+for x in range(row):
+    # 같은 열에 있다면
+    if queens[x] == queens[row]:
+        break
+    # 대각선에 있다면
+    if abs(queens[x] - queens[row]) == (row - x):
+        break
+else:
+    count += dfs(queens, n, row + 1)
+```
+
+> for-else문을 알게되었다.
+> 항상 for문을 사용할 때 탈출 문은 잘 썼다. 그런데 걸러지지 않은 애들은 flag나, cnt로 처리했는데 for-else문이 있었다니.. 정말 좋은 문법이다.
+
+`1759`
+
+_`조건: 사전순, 길이가 l, 자음 2개이상, 모음 1개이상 포함된 단어`_
+
+1. `알파벳들을 정렬하고 처음부터 차례대로 시작한다.`
+
+```python
+alpha = sorted(list(input().split()))
+ for i in range(c):
+    m = j = 0 # 모음, 자음
+    if alpha[i] in m_um: m += 1
+    else: j += 1
+    make_word(alpha[i], l, c, i, m, j)
+```
+
+2. `원하는 길이가 됐을때 조건을 만족하면 출력하기`
+
+```python
+if len(word) == l and m >= 1 and j >= 2:
+    print(word)
+    return
+```
+
+3. `길이가 오버됐다면 끝내기`
+
+```python
+if len(word) > l:
+    return
+```
+
+4. `2번이나 3번을 만족할 때 까지 word를 불려가면서 가능한 word 찾기`
+
+```python
+for i in range(idx + 1, c):
+    # 모음개수, 자음개수 copy하기
+    M, J = m, j
+    if alpha[i] in m_um: M += 1
+    else: J += 1
+    make_word(word + alpha[i], l, c, i, M, J)
+```
+
+> M, J 변수 두고 m, j copy한 이유
+>
+> > Copy하지 않으면 for문 돌면서 m, j가 점점 증가 -> 매 케이스마다 독립적이지 않게 됨.
+
+---

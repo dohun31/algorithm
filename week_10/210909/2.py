@@ -16,22 +16,33 @@ def solution(grid):
         dnum = find_dict((dx, dy), '')
         # 이전에 지나간 방향이라면 이제 끝
         if dnum in visited[x][y]:
-            return 0
+            return cnt
         # 지나가는 방향 표시
         visited[x][y].append(dnum)
         nx, ny = (x + dx) % lr, (y + dy) % lc
-        dfs(nx, ny, (dx, dy), cnt + 1)
+        return dfs(nx, ny, (dx, dy), cnt + 1)
     # 
     lr, lc = len(grid), len(grid[0])
     grid = list(map(list, grid))
+    answer, tmp = [], []
     for i in range(4):
         visited = [[[] for _ in range(lc)] for _ in range(lr)]
         visited[0][0].append(i)
         nx, ny = (0 + directions[i][0]) % lr, (0 + directions[i][1]) % lc
-        dfs(nx, ny, directions[i], 1)
-        for v in visited:
-            print(v)
-        print('------')
+        cnt = dfs(nx, ny, directions[i], 1)
 
-grid = ['SL', 'LR']
+        for i in range(len(visited)):
+            for j in range(len(visited[i])):
+                visited[i][j] = sorted(visited[i][j])
+
+        c = 0
+        for t in tmp:
+            if t == visited: break
+            else: c += 1
+        if c == len(tmp): tmp.append(visited); answer.append(cnt)
+        
+    return answer
+
+
+grid = ["R","R"]
 print(solution(grid))

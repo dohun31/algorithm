@@ -24,14 +24,13 @@ def solution(n, info):
     for i in range(l): 
         if not check_score(i, n): # 점수 낼 수 없으면 인덱스 증가
             continue
-        for j in range(i, l): # window는 i 이후부터 ~ 끝까지
+        for j in range(i + 1, l): # window는 i 이후부터 ~ 끝까지
             for k in range(j, l): # 하나씩 무시하기 위한 변수
                 score, now_n = ([0] * i) + [info[i] + 1], n - (info[i] + 1)
                 for x in range(j, l):
                     if k == x: # k == x라면 뛰어넘기
                         score.append(0) # 0으로는 채워줘야함
                         continue
-                    print(x, end=' ')
                     if not check_score(x, now_n): # 점수 못낼거 같으면
                         score.append(0) # 0으로 채워줌
                     else:
@@ -41,13 +40,12 @@ def solution(n, info):
                 if sum(score) < n: score[-1] = n - sum(score) # 아직 화살이 남았으면 제일 낮은 점수에 쏘기
                 if len(score) < l: score += [0] * (l - len(score)) # 다 채웠는데 아직 길이가 모지라면 뒤에 0으로 채우기
                 now_score = compare_score(info, score, s) # 점수 계산하기
+                last_score = max(last_score, now_score)
                 if now_score > 0:
-                    last_score = max(last_score, now_score)
                     if not result.get(now_score, 0):
                         result[now_score] = []
                     if score not in result[now_score]:
                         result[now_score].append(score)
-                print()
     if last_score > 0:
         return sorted(result[last_score], key = lambda x: (x[10], x[9], x[8], x[7], x[6], x[5], x[4], x[3], x[2], x[1], x[0]))[-1]
     else:
