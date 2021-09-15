@@ -85,7 +85,7 @@ for type, r1, c1, r2, c2, degree in skill:
 
 이때 스킬들의 `degree`는 원하는 사각형에 기록해두는데 이때 중요한건 `왼쪽 위`, `오른쪽 위 + 1`, `왼쪽 아래 + 1`, `오른쪽 아래 + 1`순서대로 `d`, `-d`, `-d`, `d`가 되게 해주어야 한다.
 
-#####_이렇게 하면 서로 서로 상쇄가 되어서 원하는 부분에만 `degree`만큼 적용이 된다._
+##### _이렇게 하면 서로 서로 상쇄가 되어서 원하는 부분에만 `degree`만큼 적용이 된다._
 
 그리고 `bottom-up`방식으로 `dp`테이블을 채워주면서 바로바로 결과를 갱신해주면 된다.
 
@@ -97,7 +97,7 @@ for i in range(1, row + 1):
         if board[i - 1][j - 1] + dp[i][j] > 0: cnt += 1
 ```
 
-#### `O(S + R\*C) (S = len(skills), R = len(row), C = len(col))`
+#### `O(S + R*C) (S = len(skills), R = len(row), C = len(col))`
 
 ---
 
