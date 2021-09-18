@@ -20,4 +20,4 @@ def check_good_number(num, n):
 
 if __name__ == "__main__":
     n = int(input())
-    print(check_good_number('', n))
+    check_good_number('', n)

@@ -5,15 +5,6 @@ def conv_alpha(words, alpha):
             alpha[w] += 10 ** l
             l -= 1
 
-def make_num(words, alpha):
-    sum = 0
-    for word in words:
-        num = ''
-        for w in word:
-            num += str(alpha[w])
-        sum += int(num)
-    return sum
-
 if __name__ == "__main__":
     import sys
     input = sys.stdin.readline
