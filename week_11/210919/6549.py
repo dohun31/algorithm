@@ -8,11 +8,8 @@ if __name__ == "__main__":
         datas.append(0)
         for idx, h in enumerate(datas):
             w = idx
-            # 현재 높이가 이전의 높이보다 작을 동안 큰 직사각형 가능성 농후
             while stack and stack[-1][1] > h:
                 w, tmp_h = stack.pop()
-                print((idx - w) * tmp_h)
                 ans = max(ans, (idx - w) * tmp_h)
             stack.append((w, h))
-            print(stack)
         print(ans)
