@@ -24,7 +24,6 @@ def solution(new_id):
     # 7단계 new_id의 길이가 2자 이하라면, new_id의 마지막 문자를 new_id의 길이가 3이 될 때까지 반복해서 끝에 붙입니다.
     elif l <= 2:
         new_id += new_id[-1] * (3 - l)
-    print(new_id)
     return new_id
 
 assert solution("...!@BaT#*..y.abcdefghijklm") == "bat.y.abcdefghi"
