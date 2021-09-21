@@ -7,10 +7,12 @@ if __name__ == "__main__":
     l = len(datas)
 
     dp = datas[:]
+    result = 0
     for i in range(l):
         now_d = dp[i]
         for j in range(i, -1, -1):
             if datas[i] > datas[j]:
                 dp[i] = max(dp[i], now_d + dp[j])
+        result = max(result, dp[i])
     
-    print(str(max(dp)))
+    print(str(result))
