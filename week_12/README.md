@@ -74,10 +74,10 @@ dp = [1, 100, 2, 50, 60, 3, 5, 6, 7, 8]
 
 ```python
 for i in range(l):
-        for j in range(i, -1, -1):
-            if datas[i] > datas[j]:
-                dp[i] += dp[j]
-                break
+    for j in range(i, -1, -1):
+        if datas[i] > datas[j]:
+            dp[i] += dp[j]
+            break
 ```
 
 > TC만 보고 하다가 엣지 케이스를 생각못했다.
