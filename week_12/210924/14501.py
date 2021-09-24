@@ -6,8 +6,8 @@ if __name__ == "__main__":
     n = int(input())
     datas = [list(map(int, input().rstrip().split())) for _ in range(n)]
 
-    result = 0
     dp = [0] * (n + 1) # 1차원으로 풀 때
+    # result = 0
     # dp = [[0, 0] for _ in range(n + 1)] # 2차원으 풀 때
     for i in range(n - 1, -1, -1):
         t, p = datas[i]
