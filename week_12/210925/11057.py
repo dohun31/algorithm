@@ -7,4 +7,4 @@ if __name__ == "__main__":
         dp[i][0] = dp[i - 1][0]
         for j in range(1, 10):
             dp[i][j] = sum(dp[i -1][:j + 1])
-    print(sum(dp[-1]))
+    print(sum(dp[-1]) % 10007)
