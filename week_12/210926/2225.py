@@ -7,4 +7,5 @@ if __name__ == "__main__":
         dp[i][0] = dp[i - 1][0] + 1
         for j in range(1, n):
             dp[i][j] = (dp[i - 1][j] + dp[i][j - 1]) % 1000000000
+            
     print(dp[-1][-1])
