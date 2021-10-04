@@ -17,11 +17,10 @@ if __name__ == "__main__":
             elif g[j] == 2:
                 chicken.append((i, j))
 
-    min_sum = 101
+    min_sum = int(1e10)
     for com in combinations(chicken, m):
         now_sum = 0
         for x1, y1 in house:
             now_sum += min([abs(x1 - x2) + abs(y1 - y2) for x2, y2 in com])
         min_sum = min(min_sum, now_sum)
-    
     print(min_sum)

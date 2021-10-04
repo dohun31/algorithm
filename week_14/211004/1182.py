@@ -7,4 +7,5 @@ def solution(cnt, now_sum):
 if __name__ == "__main__":
     n, s = map(int, input().split())
     datas = list(map(int, input().split()))
-    print(solution(0, 0))
+    result = solution(0, 0)
+    print(result if s != 0 else result - 1)
