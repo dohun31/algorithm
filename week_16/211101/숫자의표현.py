@@ -5,7 +5,6 @@ def solution(n):
     sumv = number[0]
     for start in range(n):
         while end <= n - 2 and sumv + number[end + 1] <= n:
-            print(sumv, number[end + 1])
             end += 1
             sumv += number[end]
         if sumv == n:

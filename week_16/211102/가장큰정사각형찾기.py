@@ -1,5 +1,6 @@
 def solution(board):
     row, col = len(board), len(board[0])
+    
     dp = [[0 for _ in range(col + 1)] for _ in range(row + 1)]
     for i in range(1, row + 1):
         for j in range(1, col + 1):
