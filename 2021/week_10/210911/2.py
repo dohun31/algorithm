@@ -18,8 +18,8 @@ def solution(n, k):
     nmod = make_n_mod(n, k)
     cnt = 0
     for i in nmod.split('0'):
-        if i.isdigit():
-            if is_prime(int(i)):
+        # if i.isdigit():
+        if i.isdigit() and is_prime(int(i)):
                 cnt += 1
     return cnt
 
