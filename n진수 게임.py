@@ -6,8 +6,9 @@ class Factory:
         return cls._instance
 
     def get_next_node(self, node):
-        if node.i == len(node.arr):
+        if node.i == len(node.arr) - 1:
             print("new")
+            print(node.arr, node.i, node.value)
             return Node(0, node.value + 1, self.__get_change_nmod(node.value + 1))
         node.i += 1
         return node
@@ -38,17 +39,19 @@ class Node:
 def solution(n, t, m, p):
     node_factory = Factory()
     node_factory.n = n
-    node = Node()
+    node = next_node = Node()
 
     answer = ""
     for i in range(t * m):
-        now_node = node_factory.get_next_node(node)
+        print('---')
         if i % m == p - 1:
             print("my turn")
-            answer += str(now_node.arr[now_node.i])
-        print(now_node.arr, now_node.i, now_node.value)
+            answer += str(node.arr[node.i])
+            print(answer)
         print("---")
-        node = now_node
+        print()
+        node = next_node
+        next_node = node_factory.get_next_node(node)
     return answer
 
 print(solution(16, 16, 2, 2))
