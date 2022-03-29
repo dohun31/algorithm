@@ -13,8 +13,9 @@ if __name__ == "__main__":
     while q:
         nowv = q.popleft()
         visited[nowv - 1] = True
-        for idx, party[1:] in enumerate(all_party):
+        for idx, party in enumerate(all_party):
             if not possible[idx]: continue
+            party = party[1:]
             if nowv in party:
                 possible[idx] = False
                 for person in party:
